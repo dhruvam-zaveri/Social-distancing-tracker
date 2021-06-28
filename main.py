@@ -42,14 +42,6 @@ CLASSES = [
     "tvmonitor",
 ]
 
-
-# def calcDistance():
-#     global points,
-#     mappedDist = (
-#         (points[0][0] - points[1][0]) ** 2 + (points[0][1] - points[1][1]) ** 2
-#     ) ** 0.5
-
-
 def cal_dis(p1, p2):
     global distance_w, distance_h
 
@@ -251,9 +243,6 @@ if __name__ == "__main__":
 
     while True:
         ret, frames = cap.read()
-        # height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-        # width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-        # frames = imutils.resize(frames, width=600)
         total_frames += 1
         fps_end_time = datetime.datetime.now()
 
@@ -325,9 +314,6 @@ if __name__ == "__main__":
 
             centroid_dict[objectId] = (cX, cY, x1, y1, x2, y2)
 
-            # text = "ID: {}".format(objectId)
-            # cv2.putText(frames, text, (x1, y1 - 5), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0, 0, 255), 1)
-
         # This list will hold all the bounding box which are not at a safe distance from each other
         red_zone_list = []
 
@@ -337,9 +323,6 @@ if __name__ == "__main__":
         for (id1, p1), (id2, p2) in combinations(centroid_dict.items(), 2):
             # converts pixel distace (manhatan distance) to cm.
             distance = cal_dis(p1, p2)
-            # dx, dy = p1[0] - p2[0], p1[1] - p2[1]
-            # distance = math.sqrt(dx ** 2 + dy ** 2)
-            # print(distance)
             if distance < 180.0:
                 if id1 not in red_zone_list:
                     red_zone_list.append(id1)
