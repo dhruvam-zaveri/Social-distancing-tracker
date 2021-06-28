@@ -3,7 +3,7 @@ import datetime
 import imutils
 import numpy as np
 import math
-from centriodtracker import CentroidTracker
+from centroidtracker import CentroidTracker
 from itertools import combinations
 
 click = 0
