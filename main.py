@@ -214,7 +214,7 @@ if __name__ == "__main__":
         H, W = frame.shape[0], frame.shape[1]
 
         frame = imutils.resize(frame, width=W, height=H)
-        scale_w, scale_h = get_scale(width, height)
+        scale_w, scale_h = get_scale(W, H)
 
         cv2.imshow("point selection", frame)
         cv2.setMouseCallback("point selection", get_points)
